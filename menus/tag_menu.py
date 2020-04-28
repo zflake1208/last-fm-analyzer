@@ -1,6 +1,7 @@
 from apiClients import tag_client
 from apiClients.api_common import get_response
 from menus.common import line_break, prompt, is_valid
+from graph import create_graph
 
 def tag_select():
     line_break()
@@ -70,13 +71,18 @@ def top_tags():
         line_break()
         print(f"Top tags on Last.FM: ")
         i = 1
+        tags = []
+        counts = []
         for tag in info['toptags']['tag']:
             print(f"#{i}: ")
             print("Tag:", tag['name'])
             print("Count:", f"{int(tag['count']):,}")
+            tags.append(tag['name'])
+            counts.append(tag['count'])
             if i != 10:
                 print()
             i += 1
+        create_graph("Tag", "Count", tags, counts)
     else:
         tag_select()
 
