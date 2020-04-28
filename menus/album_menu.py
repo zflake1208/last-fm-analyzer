@@ -1,6 +1,6 @@
 from apiClients import album_client
 from apiClients.api_common import get_response
-from menus.common_menu import line_break, prompt, is_valid
+from menus.common import line_break, prompt, is_valid
 
 def album_select():
     line_break()

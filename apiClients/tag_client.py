@@ -14,21 +14,17 @@ def get_similar(tag):
     query = parse.urlencode(url_params)
     return query
 
-def get_top_albums(tag, limit=None, page=None):
+def get_top_albums(tag, limit=10, page=None):
     method = "tag.gettopalbums"
     url_params = {'method': method, 'tag': tag}
-    if limit is not None:
-        url_params['limit'] = limit
     if page is not None:
         url_params['page'] = page
     query = parse.urlencode(url_params)
     return query
 
-def get_top_artists(tag, limit=None, page=None):
+def get_top_artists(tag, limit=10, page=None):
     method = "tag.gettopartists"
     url_params = {'method': method, 'tag': tag}
-    if limit is not None:
-        url_params['limit'] = limit
     if page is not None:
         url_params['page'] = page
     query = parse.urlencode(url_params)
@@ -40,11 +36,9 @@ def get_top_tags():
     query = parse.urlencode(url_params)
     return query
 
-def get_top_tracks(tag, limit=None, page=None):
+def get_top_tracks(tag, limit=10, page=None):
     method = "tag.gettoptracks"
     url_params = {'method': method, 'tag': tag}
-    if limit is not None:
-        url_params['limit'] = limit
     if page is not None:
         url_params['page'] = page
     query = parse.urlencode(url_params)

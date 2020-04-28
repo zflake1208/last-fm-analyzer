@@ -3,7 +3,7 @@ from menus.artist_menu import artist_select
 from menus.today_menu import today_select
 from menus.tag_menu import tag_select
 from menus.track_menu import track_select
-from menus.common_menu import line_break
+from menus.common import line_break
 
 def top_level():
     print("Select option: ")

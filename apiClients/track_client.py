@@ -18,13 +18,11 @@ def get_info(track, artist, mbid=None, username=None, autocorrect=None):
     query = parse.urlencode(url_params)
     return query
 
-def get_similar(track, artist, mbid=None, autocorrect=None, limit=None):
+def get_similar(track, artist, mbid=None, autocorrect=None, limit=10):
     method = "track.getsimilar"
     url_params = {'method': method, 'track': track, 'artist': artist}
     if mbid is not None:
         url_params['mbid'] = mbid
-    if limit is not None:
-        url_params['limit'] = limit
     if autocorrect is not None:
         url_params['autocorrect'] = autocorrect
     query = parse.urlencode(url_params)
@@ -40,13 +38,11 @@ def get_top_tags(track, artist, mbid=None, autocorrect=None):
     query = parse.urlencode(url_params)
     return query
 
-def search(track, artist=None, limit=None, page=None):
+def search(track, artist=None, limit=10, page=None):
     method = "track.search"
     url_params = {'method': method, 'track': track}
     if artist is not None:
         url_params['artist'] = artist
-    if limit is not None:
-        url_params['limit'] = limit
     if page is not None:
         url_params['page'] = page
     query = parse.urlencode(url_params)
