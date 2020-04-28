@@ -30,8 +30,8 @@ def description():
         line_break()
         print(f"Description for \"{track}\" by {artist}: ")
         print(info['track']['wiki']['content'])
-        print("Playcount:", info['track']['playcount'])
-        print("Listeners:", info['track']['listeners'])
+        print("Playcount:", f"{int(info['track']['playcount']):,}")
+        print("Listeners:", f"{int(info['track']['listeners']):,}")
     else:
         description()
 
