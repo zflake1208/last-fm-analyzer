@@ -62,6 +62,6 @@ def search():
             print("Artist:", album['artist'])
             if i != 10:
                 print()
-                i += 1
+            i += 1
     else:
         search()
