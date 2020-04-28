@@ -58,8 +58,8 @@ def search():
         i = 1
         for album in info['results']['albummatches']:
             print(f"#{i}")
-            print("Album: ", album['name'])
-            print("Artist: ", album['artist'])
+            print("Album:", album['name'])
+            print("Artist:", album['artist'])
             if i != 10:
                 print()
                 i += 1

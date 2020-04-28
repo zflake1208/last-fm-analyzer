@@ -6,6 +6,7 @@ def track_select():
     line_break()
     prompt(['1: Description', '2: Similar Songs', '3: Tags', '4: Search'])
     selection = int(input())
+    line_break()
     if selection == 1:
         description()  
     elif selection == 2:

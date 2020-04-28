@@ -29,5 +29,7 @@ def search(album, limit=10, page=None):
     url_params = {'method': method, 'album': album}
     if page is not None:
         url_params['page'] = page
+    if limit is not None:
+        url_params['limit'] = limit
     query = parse.urlencode(url_params)
     return query

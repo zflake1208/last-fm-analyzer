@@ -44,7 +44,7 @@ def albums():
         print(f"Albums by {artist}: ")
         i = 1
         for album in info['topalbums']['album']:
-            print(f"#{i}: ")
+            print(f"#{i}:")
             print("Album Name:", album['name'])
             print(f"Playcount: {int(album['playcount']):,}")
             if i != 10:
@@ -63,7 +63,7 @@ def tracks():
         print(f"Top tracks for {artist}: ")
         i = 1
         for track in info['toptracks']['track']:
-            print(f"#{i}: ")
+            print(f"#{i}:")
             print("Track Name:", track['name'])
             print(f"Playcount: {int(track['playcount']):,}")
             if i != 10:
@@ -82,7 +82,7 @@ def tags():
         print(f"Top tags for {artist}: ")
         i = 1
         for tag in info['toptags']['tag']:
-            print(f"#{i}: ")
+            print(f"#{i}:")
             print("Tag Name:", tag['name'])
             print(f"Count: {int(tag['count']):,}")
             if i != 10:
@@ -101,7 +101,7 @@ def similar_artists():
         print(f"Artists similar to {artist}: ")
         i = 1
         for artist in info['similarartists']['artist']:
-            print(f"#{i}: ")
+            print(f"#{i}:")
             print("Artist:", artist['name'])
             print(f"Match: {float(artist['match']):.0%}")
             if i != 10:
