@@ -22,7 +22,7 @@ def get_info(artist, mbid=None, lang=None, autocorrect=None, username=None):
     return query
 
 
-def get_similar(artist, limit=None, autocorrect=None, mbid=None):
+def get_similar(artist, limit=10, autocorrect=None, mbid=None):
     method = "artist.getsimilar"
     url_params = {'method': method, 'artist': artist}
     if autocorrect is not None:
@@ -35,7 +35,7 @@ def get_similar(artist, limit=None, autocorrect=None, mbid=None):
     return query
 
 
-def get_top_albums(artist, mbid=None, autocorrect=None, page=None, limit=None):
+def get_top_albums(artist, mbid=None, autocorrect=None, page=None, limit=10):
     method = "artist.gettopalbums"
     url_params = {'method': method, 'artist': artist}
     if autocorrect is not None:
@@ -61,7 +61,7 @@ def get_top_tags(artist, mbid=None, autocorrect=None):
     return query
 
 
-def get_top_tracks(artist, mbid=None, autocorrect=None, page=None, limit=None):
+def get_top_tracks(artist, mbid=None, autocorrect=None, page=None, limit=10):
     method = "artist.gettoptracks"
     url_params = {'method': method, 'artist': artist}
     if autocorrect is not None:
@@ -76,7 +76,7 @@ def get_top_tracks(artist, mbid=None, autocorrect=None, page=None, limit=None):
     return query
 
 
-def search(artist, limit=None, page=None):
+def search(artist, limit=10, page=None):
     method = "artist.search"
     url_params = {'method': method, 'artist': artist}
     if page is not None:
