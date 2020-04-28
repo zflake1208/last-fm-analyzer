@@ -30,7 +30,7 @@ def last_step():
     line_break()
     print("Anything else? (Y/N)")
     selection = input()
-    if selection.capitalize == "Y" or selection.capitalize == "YES":
+    if selection.upper() == "Y" or selection.upper() == "YES":
         top_level()
     else:
         print("Goodbye.")
