@@ -1,6 +1,7 @@
 from apiClients import track_client
 from apiClients.api_common import get_response
 from menus.common import line_break, prompt, is_valid
+from graph import create_graph
 
 def track_select():
     line_break()
@@ -46,15 +47,20 @@ def similar_songs():
         line_break()
         print(f"Tracks similar to \"{track}\" by {artist}: ")
         i = 1
+        tracks = []
+        matches = []
         for track in info['similartracks']['track']:
             print(f"#{i}: ")
             print("Track:", track['name'])
             print("Artist:", track['artist']['name'])
             print("Playcount:", f"{int(track['playcount']):,}")
             print("Match:", f"{float(track['match']):.0%}")
+            tracks.append(f"{track['name']}\n({track['artist']['name']})")
+            matches.append(float(track['match']) * 100)
             if i != 10:
                 print()
             i += 1
+        create_graph("Track", "Match %", tracks, matches)
     else:
         similar_songs()
 
@@ -69,13 +75,18 @@ def tags():
         line_break()
         print(f"Top tags for \"{track}\" by {artist}: ")
         i = 1
+        tags = []
+        counts = []
         for tag in info['tags']['tag']:
             print(f"#{i}: ")
             print("Tag:", tag['name'])
             print("Count:", tag['count'])
+            tags.append(tag['name'])
+            counts.append(int(tag['count']))
             if i != 10:
                 print()
             i += 1
+        create_graph("Tags", "Count", tags, counts)
     else:
         tags()
 
@@ -88,13 +99,18 @@ def search():
         line_break()
         print(f"Tracks that match \"{track}\": ")
         i = 1
+        tracks = []
+        listeners = []
         for track in info['results']['trackmatches']['track']:
             print(f"#{i}: ")
             print("Track:", track['name'])
             print("Artist:", track['artist'])
             print("Listeners:", f"{int(track['listeners']):,}")
+            tracks.append(f"{track['name']}\n({track['artist']['name']})")
+            listeners.append(int(track['listeners']))
             if i != 10:
                 print()
             i += 1
+        create_graph("Track", "Listeners", tracks, listeners)
     else:
         search()
