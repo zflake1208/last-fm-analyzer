@@ -1,5 +1,4 @@
-from apiClients import geo_client, chart_client
-from apiClients.api_common import get_response
+import last_fm_api as api
 from menus.common import line_break, is_valid, prompt
 from graph import create_graph
 
@@ -48,7 +47,7 @@ def country_select():
 
 
 def global_top_artists():
-    info = get_response(chart_client.get_top_artists())
+    info = api.get_response(api.chart_client.get_top_artists())
     if is_valid(info):
         line_break()
         print(f"Today's top artists: ")
@@ -71,7 +70,7 @@ def global_top_artists():
 
 
 def global_top_tracks():
-    info = get_response(chart_client.get_top_tracks())
+    info = api.get_response(api.chart_client.get_top_tracks())
     if is_valid(info):
         line_break()
         print(f"Today's top tracks: ")
@@ -95,7 +94,7 @@ def global_top_tracks():
 
 
 def global_top_tags():
-    info = get_response(chart_client.get_top_tags())
+    info = api.get_response(api.chart_client.get_top_tags())
     if is_valid(info):
         line_break()
         print(f"Today's top tags: ")
@@ -120,7 +119,7 @@ def country_top_artists():
     print("Enter country:")
     country = input()
     country = check_usa(country)
-    info = get_response(geo_client.get_top_artists(country))
+    info = api.get_response(api.geo_client.get_top_artists(country))
     if is_valid(info):
         line_break()
         print(f"Top artists in {country}: ")
@@ -145,7 +144,7 @@ def country_top_tracks():
     print("Enter country:")
     country = input()
     country = check_usa(country)
-    info = get_response(geo_client.get_top_tracks(country))
+    info = api.get_response(api.geo_client.get_top_tracks(country))
     if is_valid(info):
         line_break()
         print(f"Top tracks in {country}: ")

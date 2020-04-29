@@ -1,5 +1,4 @@
-from apiClients import artist_client
-from apiClients.api_common import get_response
+import last_fm_api as api
 from menus.common import line_break, prompt, is_valid
 from graph import create_graph
 
@@ -28,7 +27,7 @@ def artist_select():
 def description():
     print("Enter artist name: ")
     artist = input()
-    info = get_response(artist_client.get_info(artist))
+    info = api.get_response(api.artist_client.get_info(artist))
     if is_valid(info):
         line_break()
         print(f"Description for {artist}: ")
@@ -39,7 +38,7 @@ def description():
 def albums():
     print("Enter artist name: ")
     artist = input()
-    info = get_response(artist_client.get_top_albums(artist))
+    info = api.get_response(api.artist_client.get_top_albums(artist))
     if is_valid(info):
         line_break()
         print(f"Albums by {artist}: ")
@@ -63,7 +62,7 @@ def albums():
 def tracks():
     print("Enter artist name: ")
     artist = input()
-    info = get_response(artist_client.get_top_tracks(artist))
+    info = api.get_response(api.artist_client.get_top_tracks(artist))
     if is_valid(info):
         line_break()
         print(f"Top tracks for {artist}: ")
@@ -87,7 +86,7 @@ def tracks():
 def tags():
     print("Enter artist name: ")
     artist = input()
-    info = get_response(artist_client.get_top_tags(artist))
+    info = api.get_response(api.artist_client.get_top_tags(artist))
     if is_valid(info):
         line_break()
         print(f"Top tags for {artist}: ")
@@ -111,7 +110,7 @@ def tags():
 def similar_artists():
     print("Enter artist name: ")
     artist = input()
-    info = get_response(artist_client.get_similar(artist))
+    info = api.get_response(api.artist_client.get_similar(artist))
     if is_valid(info):
         line_break()
         print(f"Artists similar to {artist}: ")
@@ -135,7 +134,7 @@ def similar_artists():
 def search():
     print("Enter artist name: ")
     artist = input()
-    info = get_response(artist_client.search(artist))
+    info = api.get_response(api.artist_client.search(artist))
     if is_valid(info):
         line_break()
         print(f"Artists that match \"{artist}\": ")

@@ -1,5 +1,4 @@
-from apiClients import album_client
-from apiClients.api_common import get_response
+import last_fm_api as api
 from menus.common import line_break, prompt, is_valid
 
 def album_select():
@@ -23,7 +22,7 @@ def description():
     album = input()
     print("Enter artist name: ")
     artist = input()
-    info = get_response(album_client.get_info(album, artist))
+    info = api.get_response(api.album_client.get_info(album, artist))
     if is_valid(info):
         line_break()
         print(f"Description for \"{album}\" by {artist}: ")
@@ -37,7 +36,7 @@ def tags():
     album = input()
     print("Enter artist name: ")
     artist = input()
-    info = get_response(album_client.get_top_tags(album, artist))
+    info = api.get_response(api.album_client.get_top_tags(album, artist))
     if is_valid(info):
         line_break()
         print(f"Tags associated with \"{album}\" by {artist}: ")
@@ -51,7 +50,7 @@ def tags():
 def search():
     print("Enter album name: ")
     album = input()
-    info = get_response(album_client.search(album))
+    info = api.get_response(api.album_client.search(album))
     if is_valid(info):
         line_break()
         print(f"Albums that match \"{album}\": ")

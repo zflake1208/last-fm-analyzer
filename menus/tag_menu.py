@@ -1,5 +1,4 @@
-from apiClients import tag_client
-from apiClients.api_common import get_response
+import last_fm_api as api
 from menus.common import line_break, prompt, is_valid
 from graph import create_graph
 
@@ -26,7 +25,7 @@ def tag_select():
 def description():
     print("Enter tag: ")
     tag = input()
-    info = get_response(tag_client.get_info(tag))
+    info = api.get_response(api.tag_client.get_info(tag))
     if is_valid(info):
         line_break()
         print(f"Description for \"{tag}\": ")
@@ -38,7 +37,7 @@ def description():
 def top_albums():
     print("Enter tag: ")
     tag = input()
-    info = get_response(tag_client.get_top_albums(tag))
+    info = api.get_response(api.tag_client.get_top_albums(tag))
     if is_valid(info):
         line_break()
         print(f"Top albums tagged with \"{tag}\": ")
@@ -53,7 +52,7 @@ def top_albums():
 def top_artists():
     print("Enter tag: ")
     tag = input()
-    info = get_response(tag_client.get_top_artists(tag))
+    info = api.get_response(api.tag_client.get_top_artists(tag))
     if is_valid(info):
         line_break()
         print(f"Top artists tagged with \"{tag}\": ")
@@ -66,7 +65,7 @@ def top_artists():
 
 
 def top_tags():
-    info = get_response(tag_client.get_top_tags())
+    info = api.get_response(api.tag_client.get_top_tags())
     if is_valid(info):
         line_break()
         print(f"Top tags on Last.FM: ")
@@ -90,7 +89,7 @@ def top_tags():
 def top_tracks():
     print("Enter tag: ")
     tag = input()
-    info = get_response(tag_client.get_top_tracks(tag))
+    info = api.get_response(api.tag_client.get_top_tracks(tag))
     if is_valid(info):
         line_break()
         print(f"Top tracks tagged with \"{tag}\": ")
