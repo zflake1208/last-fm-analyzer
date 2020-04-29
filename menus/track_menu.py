@@ -1,5 +1,4 @@
-from apiClients import track_client
-from apiClients.api_common import get_response
+import last_fm_api as api
 from menus.common import line_break, prompt, is_valid
 from graph import create_graph
 
@@ -26,7 +25,7 @@ def description():
     track = input()
     print("Enter artist name: ")
     artist = input()
-    info = get_response(track_client.get_info(track, artist))
+    info = api.get_response(api.track_client.get_info(track, artist))
     if is_valid(info):
         line_break()
         print(f"Description for \"{track}\" by {artist}: ")
@@ -42,7 +41,7 @@ def similar_songs():
     track = input()
     print("Enter artist name: ")
     artist = input()
-    info = get_response(track_client.get_similar(track, artist))
+    info = api.get_response(api.track_client.get_similar(track, artist))
     if is_valid(info):
         line_break()
         print(f"Tracks similar to \"{track}\" by {artist}: ")
@@ -70,7 +69,7 @@ def tags():
     track = input()
     print("Enter artist name: ")
     artist = input()
-    info = get_response(track_client.get_top_tags(track, artist))
+    info = api.get_response(api.track_client.get_top_tags(track, artist))
     if is_valid(info):
         line_break()
         print(f"Top tags for \"{track}\" by {artist}: ")
@@ -94,7 +93,7 @@ def tags():
 def search():
     print("Enter track name: ")
     track = input()
-    info = get_response(track_client.search(track))
+    info = api.get_response(api.track_client.search(track))
     if is_valid(info):
         line_break()
         print(f"Tracks that match \"{track}\": ")
