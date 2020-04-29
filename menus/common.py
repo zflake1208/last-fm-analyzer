@@ -1,3 +1,7 @@
+"""
+Common methods for the menus.
+"""
+
 def line_break():
     print("====================================")
 
